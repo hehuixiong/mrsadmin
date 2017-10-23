@@ -95,7 +95,7 @@
   export default {
     data() {
       return {
-        searchvalue: "", //搜索框的双向数据绑定
+        searchvalue: "", //搜索框的双向数据绑定ithhx908
         dataList: [], //表单的数据数组
         totalcount: 0, //总条数
         loading: true, //加载更多图片控制
