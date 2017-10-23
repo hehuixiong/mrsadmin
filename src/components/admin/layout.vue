@@ -7,7 +7,7 @@
         <div class="layout menu">
           <h1 v-if="!isTiele">知识分享系统</h1>
           <h2 style="height:95px;" v-if="isTiele"></h2>
-          <el-menu default-active="5-1" class="el-menu-vertical-demo" :collapse="isCollapse">
+          <el-menu :default-active="this.$store.state.global.menuid" class="el-menu-vertical-demo" :collapse="isCollapse">
             <!-- 学员问题汇总 -->
             <el-submenu index="1">
               <template slot="title">

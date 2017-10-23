@@ -37,7 +37,10 @@ var router = new VueRouter({
     children: [{
         name: 'goodslist', //购物管理-内容管理页面
         path: 'goodslist',
-        component: goodslist
+        component: goodslist,
+        meta: {
+          menuno: "5-1"
+        }
       },
       {
         name: 'goodsadd', //购物管理-内容管理-新增页面
@@ -52,7 +55,10 @@ var router = new VueRouter({
       {
         name: 'goodscatelist', //购物管理类别管理页面
         path: 'goodscatelist',
-        component: goodscatelist
+        component: goodscatelist,
+        meta: {
+          menuno: "5-2"
+        }
       }
     ]
   }]
@@ -70,22 +76,62 @@ axios.defaults.withCredentials = true;
 import '../static/theme_rms/index.css';
 import '../static/css/site.css';
 
+//使用vuex
+import vuex from 'vuex';
+Vue.use(vuex);
+var state = {
+  menuid: "5-1"
+};
+var actions = {
+  //这个方法在组件页面上使用 ctore.dispatch("actions中定义的名称，传参数")
+  changeMenuID({
+    commit
+  }, menuid) {
+    //触发metations中定义的方法
+    commit("changeMenuID", menuid);
+  }
+};
+//内部的一个对象，供actions来进行调用处理的，所以在组件中不能访问这些方法
+var mutations = {
+  changeMenuID(state, menuid) {
+    state.menuid = menuid;
+  }
+};
+//对state对象中的一些属性值进行逻辑封装的时候触发
+var getters = {
+
+};
+var store = new vuex.Store({
+  modules: {
+    global: {
+      state,
+      actions,
+      mutations,
+      getters
+    }
+  }
+});
+
+
 //判断用户是否登录过，如果没有登录过，跳转到login页面
-// router.beforeEach((to, from, next) => {
-//   if (to.name == "login") {
-//     next();
-//   } else {
-//     axios.get("/admin/account/islogin").then(res => {
-//       if (res.data.code == "logined") {
-//         next();
-//       } else {
-//         router.push({
-//           name: "login"
-//         });
-//       }
-//     });
-//   }
-// })
+router.beforeEach((to, from, next) => {
+  if (to.meta.menuno) {
+    store.dispatch("changeMenuID", to.meta.menuno);
+  }
+  if (to.name == "login") {
+    next();
+  } else {
+    axios.get("/admin/account/islogin").then(res => {
+      if (res.data.code == "logined") {
+        next();
+      } else {
+        router.push({
+          name: "login"
+        });
+      }
+    });
+  }
+})
 //过滤器
 Vue.filter("addTime", function (input, gs) {
   var date = new Date(input);
@@ -102,9 +148,12 @@ Vue.filter("addTime", function (input, gs) {
   }
 })
 
+
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   render: create => create(App)
 })
