@@ -1,0 +1,247 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+a{
+  color: inherit;
+}
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: white;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+
+/*登录页面*/
+
+.accounttmpl {
+  width: 100%;
+  height: 100%;
+  /* background:#267cb7; */
+}
+
+.accounttmpl .el-form-item__label {
+  color: #fff;
+}
+
+.el-menu {
+  /* background-color: #267cb7; */
+  background: #324157;
+  top: -2px;
+}
+
+.upload-demo {
+  max-height: 200px;
+  width: 400px;
+  overflow-y: auto;
+}
+
+a {
+  color: #2a72c5;
+}
+
+
+/*滚动条样式*/
+
+.upload-demo::-webkit-scrollbar {
+  /*滚动条整体样式*/
+  width: 4px;
+  /*高宽分别对应横竖滚动条的尺寸*/
+  height: 4px;
+}
+
+.upload-demo::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.upload-demo::-webkit-scrollbar-track {
+  /*滚动条里面轨道*/
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.el-submenu .el-menu-item,
+.el-menu-item,
+.el-submenu__title {
+  height: 40px;
+  line-height: 40px;
+}
+
+
+/*layout.vue布局相关begin*/
+
+.el-col-4 {
+  width: 13%
+}
+
+.el-col-20 {
+  width: 87%;
+}
+
+.area {
+  border-right: 1px solid #eee;
+  line-height: 40px;
+  color: #686f7f;
+}
+
+.hand {
+  cursor: pointer;
+}
+
+.lineleft {
+  border-left: 1px solid #eee;
+}
+
+.topbg {
+  height: 42px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #eee;
+  line-height: 42px;
+  text-align: right;
+  padding-right: 10px;
+  color: #686f7f;
+}
+
+.layout.menu {
+  min-height: 951px;
+  /* background-color: #267cb7; */
+  background: #324157;
+  margin-top: -2px;
+}
+
+
+/*展开和收缩菜单按钮图标*/
+
+.layout.el-icon-menu {
+  display: block;
+  width: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.el-menu-item-group__title {
+  padding-top: 0px;
+}
+
+.router-link-exact-active li,
+li.el-menu-item.is-active {
+  /* background-color: #20a0ff; */
+  background: #48576a;
+}
+
+a {
+  text-decoration: none;
+}
+
+.el-dropdown-menu a {
+  color: #20a0ff;
+}
+
+
+/*layout.vue布局相关end*/
+
+
+/*列表页面开始*/
+
+.arttmpl {
+  margin: 10px 10px 0 10px;
+}
+
+.arttmpl .operation {
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+  margin-top: 2px;
+  margin-bottom: 5px;
+  line-height: 40px;
+}
+
+.bt-line {
+  border-bottom: solid 1px #eee;
+}
+
+.el-button.artlist.el-button--primary {
+  color: fff;
+}
+
+.operation .el-col.el-col-20 button {
+  vertical-align: middle;
+}
+
+.page {
+  margin-top: 10px;
+}
+
+
+/*列表页面结束*/
+
+
+/*滚动条*/
+
+.easy-scrollbar {
+  width: 400px;
+}
+
+.el-upload-list.el-upload-list--picture {
+  margin-right: 10px;
+}
+
+.goodstip {
+  padding: 3px;
+}
+
+.abread {
+  padding: 10px;
+}
+
+.ls.el-icon-picture,
+.ls.el-icon-upload,
+.ls.el-icon-star-on {
+  opacity: 0.5;
+  font-size: 18px;
+}
+
+.ls.el-icon-picture.imgactive,
+.ls.el-icon-upload.imgactive,
+.ls.el-icon-star-on.imgactive {
+  opacity: 1;
+  font-size: 18px;
+}
+
+.listedit {
+  color: #2A72C5;
+  font-size: 12px;
+}
+
+
+/*The Content*/
+
+.scroll-me {
+  min-width: 750px;
+}
+
+.arttmpl .operation {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin: 15px 0 0 0;
+  border-radius: 10px;
+}
+
+.html.ql-editor {
+  margin-top: 1px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ql-container .ql-editor {
+  min-height: 20em;
+  padding-bottom: 1em;
+  max-height: 25em;
+}
